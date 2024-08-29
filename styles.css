@@ -11,41 +11,42 @@ body {
     display: flex;
     align-items: flex-end; /* Align flagpole and flag to the bottom */
     position: relative;
+    padding: 10px; /* Add some padding to ensure the flagpole fits well */
 }
 
 .flagpole {
-    width: 12px; /* Width of the flagpole */
-    height: 312px; /* Height of the flagpole */
+    width: 8px; /* Adjust width for smaller screens */
+    height: 200px; /* Adjust height for smaller screens */
     background-color: #8B4513; /* Brown color for the flagpole */
     position: relative;
-    margin-right: 20px; /* Space between the flagpole and flag */
-    border-radius: 6px; /* Rounded edges for the flagpole */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for 3D effect */
+    margin-right: 10px; /* Reduce space between the flagpole and flag */
+    border-radius: 4px; /* Adjust rounded edges */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Adjust shadow for smaller screens */
 }
 
 .flag-container {
     overflow: hidden; /* Hide overflow during the flag lift animation */
     position: relative;
-    width: 500px;
-    height: 300px;
+    width: 300px; /* Adjust width for smaller screens */
+    height: 180px; /* Adjust height for smaller screens */
 }
 
 .flag {
-    width: 500px;
-    height: 386px;
+    width: 300px; /* Adjust width for smaller screens */
+    height: 220px; /* Adjust height for smaller screens */
     background-color: #ff0000;
     position: absolute;
     bottom: 0; /* Start from the bottom */
     transform-origin: left; /* Transform origin for 3D effect */
     animation: lift 5s ease-out forwards, wave 5s infinite linear; /* Apply both animations */
-    transform: perspective(500px) rotateY(-10deg); /* 3D perspective */
+    transform: perspective(300px) rotateY(-10deg); /* 3D perspective */
     background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.8) 25%, rgba(255, 0, 0, 0.6) 25%, rgba(255, 0, 0, 0.6) 50%, rgba(255, 0, 0, 0.8) 50%, rgba(255, 0, 0, 0.8) 75%, rgba(255, 0, 0, 0.6) 75%, rgba(255, 0, 0, 0.6) 100%);
-    background-size: 20px 20px; /* Pixel size */
+    background-size: 15px 15px; /* Adjust pixel size for smaller screens */
 }
 
 .star {
-    width: 100px;
-    height: 100px;
+    width: 100px; /* Increase width for larger star */
+    height: 100px; /* Increase height for larger star */
     background-color: #ffcc00;
     clip-path: polygon(
         50% 0%, 
@@ -60,9 +61,9 @@ body {
         39% 35%
     );
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
 }
 
 @keyframes lift {
@@ -71,7 +72,7 @@ body {
         transform: translateY(100%);
     }
     100% {
-        height: 300px;
+        height: 180px; /* Adjust height for smaller screens */
         transform: translateY(0);
     }
 }
@@ -81,15 +82,38 @@ body {
         transform: translateY(0) rotateY(0deg);
     }
     25% {
-        transform: translateY(-10px) rotateY(-5deg);
+        transform: translateY(-5px) rotateY(-2.5deg);
     }
     50% {
         transform: translateY(0) rotateY(0deg);
     }
     75% {
-        transform: translateY(10px) rotateY(5deg);
+        transform: translateY(5px) rotateY(2.5deg);
     }
     100% {
         transform: translateY(0) rotateY(0deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .flagpole {
+        width: 6px; /* Further adjust width for very small screens */
+        height: 150px; /* Further adjust height for very small screens */
+    }
+
+    .flag-container {
+        width: 250px; /* Adjust width for very small screens */
+        height: 150px; /* Adjust height for very small screens */
+    }
+
+    .flag {
+        width: 250px; /* Adjust width for very small screens */
+        height: 180px; /* Adjust height for very small screens */
+        background-size: 10px 10px; /* Adjust pixel size for very small screens */
+    }
+
+    .star {
+        width: 70px; /* Increase width for very small screens */
+        height: 70px; /* Increase height for very small screens */
     }
 }
